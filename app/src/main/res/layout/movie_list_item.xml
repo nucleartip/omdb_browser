@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="vm"
+            type="techfist.dev.omdbbrowser.ui.MovieModel"
+            />
+
+        <import type="android.view.View"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            >
+
+            <!-- out bound -->
+            <RelativeLayout
+                android:id="@+id/outbound"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:padding="8dp"
+                >
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/image"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_marginRight="8dp"
+                    android:scaleType="fitCenter"
+                    app:imageUrl="@{vm.getImageUrl()}"
+                    />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/image"
+                    android:maxLines="1"
+                    android:text="@{vm.getTitle()}"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:typeface="sans"
+                    tools:text="Zombie Movie"
+                    />
+
+                <TextView
+
+                    android:id="@+id/outbound_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title"
+                    android:layout_toRightOf="@+id/image"
+                    android:maxLines="1"
+                    android:text="@{vm.getYear()}"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="18sp"
+                    android:typeface="sans"
+                    tools:text="2018"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+</layout>

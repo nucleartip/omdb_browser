@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MoviesBrowser</string>
+
+    <string name="error">Some error occurred please try again</string>
+    <string name="loading_more_error">Some error occurred in loading more</string>
+    <string name="loading_looking_up_result">Looking up movies…</string>
+    <string name="loading_loading_up_more">Loading more…</string>
+</resources>

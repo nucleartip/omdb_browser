@@ -4,7 +4,7 @@ package techfist.dev.omdbbrowser;
  * Created by Nucleartip on 6/3/18.
  */
 
-public interface ApplicationConstant {
-
+public @interface ApplicationConstant {
     String EMPTY = "";
+    String NA = "NA";
 }

@@ -9,10 +9,10 @@ import techfist.dev.omdbbrowser.AppComponent;
 import techfist.dev.omdbbrowser.api.service.MoviesApi;
 import techfist.dev.omdbbrowser.api.service.MoviesService;
 import techfist.dev.omdbbrowser.data.ResourceProvider;
-import techfist.dev.omdbbrowser.data.SearchManager;
-import techfist.dev.omdbbrowser.ui.MoviesActivity;
-import techfist.dev.omdbbrowser.ui.MoviesActivityViewModel;
-import techfist.dev.omdbbrowser.ui.MoviesAdapter;
+import techfist.dev.omdbbrowser.data.MoviesRepository;
+import techfist.dev.omdbbrowser.ui.landing.MoviesActivity;
+import techfist.dev.omdbbrowser.ui.landing.MoviesActivityViewModel;
+import techfist.dev.omdbbrowser.ui.landing.MoviesAdapter;
 
 
 @AppComponent.ScreenScope
@@ -27,8 +27,8 @@ public interface MoviesActivityComponent extends AndroidInjector<MoviesActivity>
 
         @AppComponent.ScreenScope
         @Provides
-        static SearchManager provideSearchManager(MoviesService moviesService) {
-            return new SearchManager(moviesService, MoviesApi.API_KEY);
+        static MoviesRepository provideSearchManager(MoviesService moviesService) {
+            return new MoviesRepository(moviesService, MoviesApi.API_KEY);
         }
 
         @AppComponent.ScreenScope
@@ -41,8 +41,8 @@ public interface MoviesActivityComponent extends AndroidInjector<MoviesActivity>
         @Provides
         static MoviesActivityViewModel provideMoviesActivityViewModel(MoviesAdapter moviesAdapter,
                                                                       ResourceProvider resourceProvider,
-                                                                      SearchManager searchManager) {
-            return new MoviesActivityViewModel(searchManager, resourceProvider, moviesAdapter);
+                                                                      MoviesRepository moviesRepository) {
+            return new MoviesActivityViewModel(moviesRepository, resourceProvider, moviesAdapter);
         }
 
     }

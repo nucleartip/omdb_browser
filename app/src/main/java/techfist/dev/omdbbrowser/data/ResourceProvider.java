@@ -9,10 +9,11 @@ import android.support.annotation.StringRes;
 /**
  * a provider class to provide system resources to different component,
  * as required other get API's can be added here.
+ *
+ * agenda for this class is remove any context related dependencies from ViewModels
  * <p>
  * as of now am only writing api to provide string
  * <p>
- * Created by Nucleartip on 6/3/18.
  */
 
 public class ResourceProvider {

@@ -6,6 +6,9 @@ import android.text.TextUtils;
 
 import techfist.dev.omdbbrowser.api.SortType;
 
+/**
+ * Builder class for building valid movie discover request
+ */
 public class DiscoverMoviesRequest {
     private String apikey;
     private @SortType String sortingType;

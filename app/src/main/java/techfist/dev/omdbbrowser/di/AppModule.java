@@ -15,9 +15,8 @@ import techfist.dev.omdbbrowser.data.ResourceProvider;
 
 @Module
 public class AppModule {
-
-
     private Context context;
+
     public AppModule(@Nullable Context context){
         this.context = context;
     }

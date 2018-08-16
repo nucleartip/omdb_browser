@@ -10,7 +10,7 @@
 
         <variable
             name="vm"
-            type="techfist.dev.omdbbrowser.ui.MoviesActivityViewModel"
+            type="techfist.dev.omdbbrowser.ui.landing.MoviesActivityViewModel"
             />
 
     </data>
@@ -19,7 +19,7 @@
         android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MoviesActivity"
+        tools:context=".ui.landing.MoviesActivity"
         >
 
         <RelativeLayout

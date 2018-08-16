@@ -4,5 +4,13 @@
     <string name="error">Some error occurred please try again</string>
     <string name="loading_more_error">Some error occurred in loading more</string>
     <string name="loading_looking_up_result">Looking up movies…</string>
+    <string name="loading_details">Loading details…</string>
     <string name="loading_loading_up_more">Loading more…</string>
+    <string name="released">Released %1$s</string>
+    <string name="rating">Rating %1$s</string>
+    <string name="rating_detail">Rating %1$s(%2$d votes)</string>
+    <string name="produce_by">Produced by\n %1$s</string>
+    <string name="origin_country">Origin\n %1$s</string>
+    <string name="spoken_languages">Spoken languages\n %1$s</string>
+    <string name="synopsis">Synopsis \n%1$s</string>
 </resources>

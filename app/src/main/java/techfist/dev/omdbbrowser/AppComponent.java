@@ -22,8 +22,6 @@ import techfist.dev.omdbbrowser.di.UIBuilderModule;
 @AppComponent.AppScope
 @Component(modules = {AppModule.class, NetModule.class, UIBuilderModule.class, AndroidSupportInjectionModule.class})
 public interface AppComponent extends AndroidInjector<MoviesBrowserApplication> {
-
-
     @Scope
     @Retention(RetentionPolicy.RUNTIME)
     @interface AppScope {
@@ -32,6 +30,4 @@ public interface AppComponent extends AndroidInjector<MoviesBrowserApplication> 
     @Scope
     @interface ScreenScope {
     }
-
-
 }

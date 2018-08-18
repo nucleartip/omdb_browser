@@ -6,10 +6,10 @@ import android.support.annotation.NonNull;
 import io.reactivex.Observable;
 
 /**
- * Android data binding @class {@link android.databinding.ObservableBoolean} wrapped in Rx @class {@link io.reactivex.Observable}
+ * Android data binding @class {@link android.databinding.ObservableField<T>} wrapped in Rx @class {@link io.reactivex.Observable}
  * has capability of both
- * <p>
- * Created by Nucleartip on 6/3/18.
+ *
+ * this am doing so that ObservableFields can be easily fit into Rx chains
  */
 
 public class RxObservableField<T> extends ObservableField<T> {

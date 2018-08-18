@@ -1,10 +1,12 @@
 package techfist.dev.omdbbrowser.api.response;
 
-
 import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * A response structure of discover request, am assuming few fields might be null or empty
@@ -16,9 +18,15 @@ import java.util.List;
 
 public class DiscoverResponse {
 
+    /**
+     * represents current page being viewed
+     */
     @SerializedName("page")
     private int page;
 
+    /**
+     * represents total number of pages in directory which can be viewed
+     */
     @SerializedName("total_pages")
     private int totalPages;
 
@@ -37,5 +45,21 @@ public class DiscoverResponse {
     @Nullable
     public List<Movie> getMoviesList() {
         return moviesList;
+    }
+
+    /**
+     * Helper API to generate a sample discover response for purpose of test
+     * @return a static generated object
+     */
+    public static DiscoverResponse buildForTest() {
+        Random random = new Random();
+        DiscoverResponse response = new DiscoverResponse();
+        response.page = random.nextInt(10);
+        response.totalPages = 10 + random.nextInt();
+        response.moviesList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            response.moviesList.add(Movie.buildForTest());
+        }
+        return response;
     }
 }

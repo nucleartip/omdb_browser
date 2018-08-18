@@ -13,7 +13,13 @@ import techfist.dev.omdbbrowser.data.ResourceProvider;
 import techfist.dev.omdbbrowser.ui.detail.MovieDetailActivity;
 import techfist.dev.omdbbrowser.ui.detail.MovieDetailViewModel;
 
-
+/**
+ * you can read more about dependency injection here, for this app am using
+ * one of most popular solution Dagger https://google.github.io/dagger/users-guide
+ *
+ * provides dependencies required during lifecycle of Activity MovieDetailActivity
+ *
+ */
 @AppComponent.ScreenScope
 @Subcomponent(modules = {MovieDetailActivityComponent.MovieDetailActivityModule.class})
 public interface MovieDetailActivityComponent extends AndroidInjector<MovieDetailActivity> {

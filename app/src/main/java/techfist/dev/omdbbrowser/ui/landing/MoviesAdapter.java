@@ -3,6 +3,7 @@ package techfist.dev.omdbbrowser.ui.landing;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -13,9 +14,12 @@ import java.util.List;
 import techfist.dev.omdbbrowser.BR;
 import techfist.dev.omdbbrowser.R;
 
+/**
+ * adapter to work along with {@link RecyclerView}, for displaying movies
+ */
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.DataBindingViewHolder> {
 
-    private List<MovieModel> items;
+    @VisibleForTesting List<MovieModel> items;
     private LayoutInflater layoutInflater;
 
     void appendList(@NonNull List<MovieModel> models) {

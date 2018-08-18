@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import techfist.dev.omdbbrowser.api.SortType;
 
 /**
- * Builder class for building valid movie discover request
+ * Helper class for building valid movie discover request
  */
 public class DiscoverMoviesRequest {
     private String apikey;
@@ -83,5 +83,25 @@ public class DiscoverMoviesRequest {
             return request;
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
+
+        DiscoverMoviesRequest request = (DiscoverMoviesRequest) o;
+
+        if (requestedPage != request.requestedPage) { return false; }
+        if (apikey != null ? !apikey.equals(request.apikey) : request.apikey != null) { return false; }
+        return sortingType != null ? sortingType.equals(request.sortingType) : request.sortingType == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = apikey != null ? apikey.hashCode() : 0;
+        result = 31 * result + (sortingType != null ? sortingType.hashCode() : 0);
+        result = 31 * result + requestedPage;
+        return result;
     }
 }

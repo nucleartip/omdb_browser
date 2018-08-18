@@ -12,8 +12,9 @@ import dagger.android.HasActivityInjector;
 import techfist.dev.omdbbrowser.di.AppModule;
 
 /**
- * initializes dependency graph
- * Created by Nucleartip on 5/3/18.
+ * initializes application dependency graph,
+ * most of the dependency related wiring is done automatically by Dagger
+ * you can read more about it here https://google.github.io/dagger/users-guide
  */
 
 public class MoviesBrowserApplication extends Application implements HasActivityInjector {

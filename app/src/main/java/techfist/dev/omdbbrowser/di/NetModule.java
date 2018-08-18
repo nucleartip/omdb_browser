@@ -17,7 +17,12 @@ import techfist.dev.omdbbrowser.api.service.MoviesApi;
 import techfist.dev.omdbbrowser.api.service.MoviesService;
 import techfist.dev.omdbbrowser.api.service.MoviesServiceImpl;
 
-
+/**
+ * you can read more about dependency injection here, for this app am using
+ * one of most popular solution Dagger https://google.github.io/dagger/users-guide
+ *
+ * provides app-wide dependencies, hosts mostly network related dependencies
+ */
 @Module
 public class NetModule {
 

@@ -19,9 +19,19 @@ import techfist.dev.omdbbrowser.utils.RxUtils;
 
 import static techfist.dev.omdbbrowser.ApplicationConstant.EMPTY;
 
+/**
+ * this code has been unit tested, and can be found under test directory under similar
+ * package structure
+ *
+ * this view model associates with {@link MovieDetailActivity}
+ * it provides various data binding fields, which are self explanatory
+ *
+ * holds business logic of fetching and providing movie details for display
+ *
+ */
 public class MovieDetailViewModel implements LifecycleObserver {
     private static String TAG = MovieDetailViewModel.class.getSimpleName();
-    private final static String PROFILE_URL_FORMAT = "https://image.tmdb.org/t/p/w500/%1$s";
+    @VisibleForTesting final static String PROFILE_URL_FORMAT = "https://image.tmdb.org/t/p/w500/%1$s";
 
     private final MoviesRepository moviesRepository;
     private final ResourceProvider resourceProvider;
@@ -78,7 +88,7 @@ public class MovieDetailViewModel implements LifecycleObserver {
      */
     public final RxObservableField<String> title;
 
-    private Disposable detailLoader;
+    @VisibleForTesting Disposable detailLoader;
 
     public MovieDetailViewModel(@NonNull MoviesRepository moviesRepository, @NonNull ResourceProvider resourceProvider) {
         this.moviesRepository = moviesRepository;

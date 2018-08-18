@@ -16,17 +16,24 @@ import techfist.dev.omdbbrowser.di.NetModule;
 import techfist.dev.omdbbrowser.di.UIBuilderModule;
 
 /**
- * Created by Nucleartip on 5/3/18.
+ * bind's all the modules together into a component
  */
 
 @AppComponent.AppScope
 @Component(modules = {AppModule.class, NetModule.class, UIBuilderModule.class, AndroidSupportInjectionModule.class})
 public interface AppComponent extends AndroidInjector<MoviesBrowserApplication> {
+
+    /**
+     * Simple annotation to define if a dependency will remain available to app wide scope
+     */
     @Scope
     @Retention(RetentionPolicy.RUNTIME)
     @interface AppScope {
     }
 
+    /**
+     * Simple annotation to define if a dependency will remain available to only current screen scope
+     */
     @Scope
     @interface ScreenScope {
     }

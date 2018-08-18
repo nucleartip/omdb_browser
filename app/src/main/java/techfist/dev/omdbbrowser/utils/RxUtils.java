@@ -6,14 +6,12 @@ import android.support.annotation.NonNull;
 
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Cancellable;
 
 /**
- * Created by Nucleartip on 6/3/18.
+ * Utility class providing generic apis
  */
 
 public class RxUtils {
-
 
     /**
      * unsubscribe from one or many subscriptions
@@ -28,10 +26,9 @@ public class RxUtils {
         }
     }
 
-
     /**
-     * api checked for current status of desposable
-     * @param disposables desposable need to be checked for there status
+     * api checkes for current status of desposable
+     * @param disposables disposable need to be checked for there status
      * @return boolean to indicate
      */
     public static boolean isSubscriptionRunning(final Disposable... disposables) throws NullPointerException {
@@ -50,18 +47,16 @@ public class RxUtils {
     }
 
     /**
-     * Takes an android data binding @class {@link android.databinding.ObservableField} and return asn equivalent
+     * Takes an android data binding @class {@link android.databinding.ObservableField} and return ann equivalent
      * Rx version of same.
      *
-     * @param observableField<T>
-     * @param <T>
-     * @return
+     * @param observableField {@link ObservableField<T>}
+     * @return {@link Observable<T>} rX
      */
     public static <T> Observable<T> asObservable(@NonNull final ObservableField<T> observableField) {
 
 
         return Observable.create(emitter -> {
-
             if (!emitter.isDisposed()) {
                 emitter.onNext(observableField.get());
             }
@@ -76,20 +71,12 @@ public class RxUtils {
                                     emitter.onNext(observableField.get());
                                 }
                             } catch (final Exception e) {
-                                emitter.onError(e);
+                                emitter.tryOnError(e);
                             }
                         }
                     };
             observableField.addOnPropertyChangedCallback(callback);
-            emitter.setCancellable(new Cancellable() {
-                @Override public void cancel() throws Exception {
-                    observableField.removeOnPropertyChangedCallback(callback);
-                }
-            });
-
-
+            emitter.setCancellable(() -> observableField.removeOnPropertyChangedCallback(callback));
         });
-
     }
-
 }

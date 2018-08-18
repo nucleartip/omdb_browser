@@ -7,8 +7,8 @@ import android.support.annotation.StringRes;
 
 
 /**
- * a provider class to provide system resources to different component,
- * as required other get API's can be added here.
+ * a resource provider class to provide system resources to different component.
+ * as requirement other get resource API's can be added here.
  *
  * agenda for this class is remove any context related dependencies from ViewModels
  * <p>

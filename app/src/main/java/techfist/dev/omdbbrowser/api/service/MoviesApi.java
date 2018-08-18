@@ -14,6 +14,8 @@ import techfist.dev.omdbbrowser.api.response.Movie;
 /**
  * interface defining structure of key api's to communicate with tmdb backend, callbacks are wrapped in Rx
  * using RxAdapterFactory
+ *
+ * More info over API provide https://www.themoviedb.org/
  */
 
 public interface MoviesApi {

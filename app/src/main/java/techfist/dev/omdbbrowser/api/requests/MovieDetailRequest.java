@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 /**
- * Builder for building valid movie detail request
+ * Helper class for building a valid movie detail request
  */
 public class MovieDetailRequest {
     @NonNull private String apikey = "";
@@ -62,5 +62,23 @@ public class MovieDetailRequest {
             return request;
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
+
+        MovieDetailRequest request = (MovieDetailRequest) o;
+
+        if (movieId != request.movieId) { return false; }
+        return apikey.equals(request.apikey);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = apikey.hashCode();
+        result = 31 * result + (int) (movieId ^ (movieId >>> 32));
+        return result;
     }
 }

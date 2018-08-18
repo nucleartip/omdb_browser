@@ -25,10 +25,32 @@ import techfist.dev.omdbbrowser.utils.LifecycleActivity;
 import techfist.dev.omdbbrowser.utils.LifecycleObserver;
 import techfist.dev.omdbbrowser.utils.RxUtils;
 
+/**
+ * Details screen, displays requested movie in detail
+ *
+ * Works using Android data binding library.
+ * Associated ViewModel class is {@link MovieDetailViewModel}
+ *
+ * it subscribes to publicly available observables exposed via view model,
+ * and performs actions such as displaying of progress bar or toast etc.
+ *
+ *
+ * All UI related task are being performed here
+ * All business logic is in corresponding ViewModel class
+ *
+ * Clean MVVM design pattern is followed here
+ *
+ */
 public class MovieDetailActivity extends LifecycleActivity {
-    private static String TAG = MovieDetailActivity.class.getSimpleName();
-    private static String KEY_MOVIE_ID = "asdkajsdasmd";
+    private static final String TAG = MovieDetailActivity.class.getSimpleName();
+    private static final String KEY_MOVIE_ID = "asdkajsdasmd";
 
+    /**
+     * static API to obtains a valid intent to interact with this activity
+     * @param context value non null context
+     * @param id id of movide for which details is requsted
+     * @return valid intent, which can be used to invoke this activity
+     */
     public static Intent newIntent(@NonNull Context context, long id) {
         Intent intent = new Intent(context, MovieDetailActivity.class);
         intent.putExtra(KEY_MOVIE_ID, id);

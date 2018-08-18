@@ -6,13 +6,14 @@ import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.EmptyStackException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import techfist.dev.omdbbrowser.ApplicationConstant;
 
 /**
- * represents a movie entity
+ * represents a movie entity, fields are self explanatory
  */
 public class Movie {
 
@@ -84,10 +85,12 @@ public class Movie {
         return TextUtils.isEmpty(overView) ? ApplicationConstant.EMPTY : overView;
     }
 
+    @NonNull
     public String getReleaseDate() {
         return TextUtils.isEmpty(releaseDate) ? ApplicationConstant.NA : releaseDate;
     }
 
+    @NonNull
     public String getPosterUrl() {
         return TextUtils.isEmpty(posterUrl) ? ApplicationConstant.EMPTY : posterUrl;
     }
@@ -107,44 +110,34 @@ public class Movie {
         return spokenLanguageList;
     }
 
+    /**
+     * Helper API which generate a static object for purpose of testing
+     * @return
+     */
+    public static Movie buildForTest(){
+        Random random = new Random();
+        Movie movie = new Movie();
+        movie.title = "title";
+        movie.originalTitle = "title";
+        movie.id = random.nextInt();
+        movie.posterUrl = "url";
+        movie.releaseDate="213-123-232";
+        movie.overView = "adkjgdjasbdsajdbsahjdksa";
+        movie.averageRatings = random.nextFloat();
+        movie.spokenLanguageList = new ArrayList<>();
+        movie.productionCountryList = new ArrayList<>();
+        movie.productionCompanyList = new ArrayList<>();
+        for(int i = 0 ; i < 5; i++){
+            movie.spokenLanguageList.add(SpokenLanguage.buildForTest());
+            movie.productionCountryList.add(ProductionCountry.buildForTest());
+            movie.productionCompanyList.add(ProductionCompany.buildForTest());
+        }
+        return movie;
+    }
+
     @Override
     public String toString() {
         return "Movie{" + "totalVote=" + totalVote + ", id=" + id + ", averageRatings=" + averageRatings + ", title='" + title + '\'' +
                 ", overView='" + overView + '\'' + ", releaseDate='" + releaseDate + '\'' + ", posterUrl='" + posterUrl + '\'' + '}';
-    }
-
-    public static class ProductionCompany{
-        @SerializedName("name")
-        private String name;
-
-        @SerializedName("origin_country")
-        private String originCountry;
-
-        public String getName() {
-            return name;
-        }
-
-        public String getOriginCountry() {
-            return originCountry;
-        }
-    }
-
-
-    public static class ProductionCountry{
-        @SerializedName("name")
-        private String name;
-
-        public String getName() {
-            return name;
-        }
-    }
-
-    public static class SpokenLanguage{
-        @SerializedName("name")
-        private String name;
-
-        public String getName() {
-            return name;
-        }
     }
 }

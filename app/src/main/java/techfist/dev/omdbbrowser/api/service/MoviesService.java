@@ -8,6 +8,9 @@ import techfist.dev.omdbbrowser.api.requests.MovieDetailRequest;
 import techfist.dev.omdbbrowser.api.response.DiscoverResponse;
 import techfist.dev.omdbbrowser.api.response.Movie;
 
+/**
+ * Bridge between API and its implementation
+ */
 public interface MoviesService {
     /**
      * discovers movies according to provided request

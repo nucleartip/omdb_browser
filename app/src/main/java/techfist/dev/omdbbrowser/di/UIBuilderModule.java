@@ -13,8 +13,10 @@ import techfist.dev.omdbbrowser.ui.detail.MovieDetailActivity;
 import techfist.dev.omdbbrowser.ui.landing.MoviesActivity;
 
 /**
- * maintains binding of various ui components
- * Created by Nucleartip on 5/3/18.
+ * you can read more about dependency injection here, for this app am using
+ * one of most popular solution Dagger https://google.github.io/dagger/users-guide
+ *
+ * provides UI components
  */
 @SuppressWarnings("unused")
 @Module(subcomponents = {MoviesActivityComponent.class, MovieDetailActivityComponent.class})

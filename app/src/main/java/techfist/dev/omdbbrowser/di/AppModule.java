@@ -8,11 +8,11 @@ import techfist.dev.omdbbrowser.AppComponent;
 import techfist.dev.omdbbrowser.data.ResourceProvider;
 
 /**
+ * you can read more about dependency injection here, for this app am using
+ * one of most popular solution Dagger https://google.github.io/dagger/users-guide
  *
- * provide dependencies required over the life cycle of app
- * Created by Nucleartip on 5/3/18.
+ * provides app-wide dependencies.
  */
-
 @Module
 public class AppModule {
     private Context context;

@@ -19,9 +19,16 @@ import techfist.dev.omdbbrowser.ui.landing.MoviesActivityViewModel;
 
 
 /**
- * binding calls
- * <p>
- * Created by Nucleartip on 5/3/18.
+ * binding calls, works in tandem with Android data binding library
+ * https://developer.android.com/topic/libraries/data-binding/
+ *
+ * for the purpose of loading Images over network am using Glide(https://github.com/bumptech/glide)
+ * with all sorts of cache enabled to assist in faster loading of images when requested again,
+ * saving both time and bandwidth.
+ *
+ * to have some transformation on top of downloaded Images, am using a publically available transformation sets
+ * https://github.com/wasabeef/glide-transformations
+ *
  */
 
 public class DataBindingUtils {

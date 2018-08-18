@@ -3,11 +3,9 @@ package techfist.dev.omdbbrowser.utils;
 /**
  *
  * a lifecycle framework to work closely with android activity lifecycle,
- * am not using android Lifecycle, arch as last I check it was still in beta mode
- * otherwise we can leverage on that by using ViewModel, LiveDat, LifecycleActivity etc.
+ * am not using android Lifecycle arch, as last I check it was still in beta mode
+ * otherwise we can leverage on that by using ViewModel, LiveData, LifecycleActivity etc.
  *
- *
- * Created by Nucleartip on 5/3/18.
  */
 
 public interface LifecycleObserver {

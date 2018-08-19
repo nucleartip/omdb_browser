@@ -1,8 +1,5 @@
 package techfist.dev.omdbbrowser;
 
-
-
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

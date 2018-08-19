@@ -23,16 +23,16 @@ import static org.mockito.ArgumentMatchers.eq;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
-public class MoviesRepositoryTest {
+public class OnlineMoviesRepositoryTest {
 
     @Mock private MoviesService moviesService;
     private final String key = "12345";
-    private MoviesRepository moviesRepository;
+    private OnlineMoviesRepository moviesRepository;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        moviesRepository = new MoviesRepository(moviesService, key);
+        moviesRepository = new OnlineMoviesRepository(moviesService, key);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class MoviesRepositoryTest {
     @Test
     public void test_loadMoreMovies_reached_limit() {
         moviesRepository.maxPages = 1;
-        moviesRepository.pageNumber = 1;
+        moviesRepository.pageNumber = 2;
 
         moviesRepository.loadMoreMovies()
                 .test()

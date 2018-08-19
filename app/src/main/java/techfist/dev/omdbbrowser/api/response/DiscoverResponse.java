@@ -47,6 +47,18 @@ public class DiscoverResponse {
         return moviesList;
     }
 
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
+    }
+
+    public void setMoviesList(@Nullable List<Movie> moviesList) {
+        this.moviesList = moviesList;
+    }
+
     /**
      * Helper API to generate a sample discover response for purpose of test
      * @return a static generated object

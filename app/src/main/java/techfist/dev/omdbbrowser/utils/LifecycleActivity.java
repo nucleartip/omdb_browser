@@ -10,7 +10,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 
 /**
  * base activity which does some generic work, plus gets a lifecycle observer and notifies it regarding ongoing
- * lifecycle changes, as of now this API only support single observer, it can changed to return a list of observer
+ * lifecycle changes, as of now this API only support single observer, it can be changed to return a list of observer.
  * in that case entire list of observer will be notified.(which will be useful when a activity has multiple
  * view models, fragments etc.)
  *

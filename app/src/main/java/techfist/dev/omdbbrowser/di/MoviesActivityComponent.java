@@ -8,11 +8,16 @@ import dagger.android.AndroidInjector;
 import techfist.dev.omdbbrowser.AppComponent;
 import techfist.dev.omdbbrowser.api.service.MoviesApi;
 import techfist.dev.omdbbrowser.api.service.MoviesService;
-import techfist.dev.omdbbrowser.data.ResourceProvider;
 import techfist.dev.omdbbrowser.data.MoviesRepository;
+import techfist.dev.omdbbrowser.data.OfflineMovieRepository;
+import techfist.dev.omdbbrowser.data.OnlineMoviesRepository;
+import techfist.dev.omdbbrowser.data.ResourceProvider;
+import techfist.dev.omdbbrowser.data.dao.MoviesDao;
+import techfist.dev.omdbbrowser.data.dao.MoviesDatabase;
 import techfist.dev.omdbbrowser.ui.landing.MoviesActivity;
 import techfist.dev.omdbbrowser.ui.landing.MoviesActivityViewModel;
 import techfist.dev.omdbbrowser.ui.landing.MoviesAdapter;
+import techfist.dev.omdbbrowser.utils.NetworkConnection;
 
 /**
  * you can read more about dependency injection here, for this app am using
@@ -33,8 +38,21 @@ public interface MoviesActivityComponent extends AndroidInjector<MoviesActivity>
 
         @AppComponent.ScreenScope
         @Provides
-        static MoviesRepository provideSearchManager(MoviesService moviesService) {
-            return new MoviesRepository(moviesService, MoviesApi.API_KEY);
+        static OnlineMoviesRepository provideOnlineMoviesRepository(MoviesService moviesService) {
+            return new OnlineMoviesRepository(moviesService, MoviesApi.API_KEY);
+        }
+
+        @AppComponent.ScreenScope
+        @Provides
+        static OfflineMovieRepository provideOfflineMovieRepository(MoviesDao moviesDao) {
+            return new OfflineMovieRepository(moviesDao);
+        }
+
+        @AppComponent.ScreenScope
+        @Provides
+        static MoviesRepository provideMoviesRepository(NetworkConnection networkConnection, OnlineMoviesRepository
+                onlineMoviesRepository, OfflineMovieRepository offlineMovieRepository){
+            return new MoviesRepository(networkConnection, onlineMoviesRepository, offlineMovieRepository);
         }
 
         @AppComponent.ScreenScope

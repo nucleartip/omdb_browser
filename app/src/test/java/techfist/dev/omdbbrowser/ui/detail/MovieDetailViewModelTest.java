@@ -21,6 +21,7 @@ import techfist.dev.omdbbrowser.api.response.ProductionCompany;
 import techfist.dev.omdbbrowser.api.response.ProductionCountry;
 import techfist.dev.omdbbrowser.api.response.SpokenLanguage;
 import techfist.dev.omdbbrowser.data.MoviesRepository;
+import techfist.dev.omdbbrowser.data.OnlineMoviesRepository;
 import techfist.dev.omdbbrowser.data.ResourceProvider;
 
 import static org.mockito.ArgumentMatchers.anyString;

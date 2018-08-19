@@ -20,6 +20,7 @@ import techfist.dev.omdbbrowser.R;
 import techfist.dev.omdbbrowser.api.response.DiscoverResponse;
 import techfist.dev.omdbbrowser.api.response.Movie;
 import techfist.dev.omdbbrowser.data.MoviesRepository;
+import techfist.dev.omdbbrowser.data.OnlineMoviesRepository;
 import techfist.dev.omdbbrowser.data.ResourceProvider;
 
 import static techfist.dev.omdbbrowser.ApplicationConstant.EMPTY;

@@ -6,6 +6,11 @@ import android.text.TextUtils;
 
 /**
  * Helper class for building a valid movie detail request
+ *
+ * Am following builder pattern here, though request looks fairly simple here.
+ * but am just presenting an idea on how to abstract making of a request object which might have multiple params.
+ * here most values of defaulted, and only those supplied by used are overwritten.
+ *
  */
 public class MovieDetailRequest {
     @NonNull private String apikey = "";

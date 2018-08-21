@@ -32,9 +32,3 @@ the entire code base, but has written enough to demonstrate testability.
     and caching.
  5. Retrofit along with google gsons and RxJava adapter, for handling network calls
  6. Room db, for all DB operations along with respective Rx adapters.
- 
-
-I have tried to write comments in most sections of code, it should provide major info
-over api's, classes and there usages.
-
-You can reach me back in case of any more information.
